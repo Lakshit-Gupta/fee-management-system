@@ -1,0 +1,188 @@
+service: fee-management-system-Aiict
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: ${opt:stage, 'pro'}
+  region: ap-south-1
+  deploymentBucket:
+    name: aiict-serverless-deployments # Specify existing bucket name here
+  environment:
+    STUDENTS_TABLE: Students-${self:provider.stage}
+    FEES_TABLE: Fees-${self:provider.stage}
+    NOTIFICATION_LOGS_TABLE: NotificationLogs-${self:provider.stage}
+    # Production environment variables
+    NODE_ENV: 'production'
+    # Security variables for authentication
+    JWT_SECRET: ${env:JWT_SECRET, 'AIICT_JWT_SECRET_2025_PRODUCTION_KEY'} 
+    ADMIN_EMAIL: ${env:ADMIN_EMAIL, 'admin@aiict.in'}
+    # Updated password hash from generate-admin-password.js
+    ADMIN_PASSWORD_HASH: ${env:ADMIN_PASSWORD_HASH, 'ce17a2c957690ff42dadb332e44625e8393dd538423c3418e97e7307767b1e21'} 
+    PASSWORD_SALT: ${env:PASSWORD_SALT, 'aiict_salt_2025'}
+    # CORS configuration for production
+    CORS_ORIGIN: 'https://admin.aiict.in'
+    
+    # Fast2SMS Configuration (New SMS provider)
+    NOTIFICATION_PROVIDER: ${env:NOTIFICATION_PROVIDER, 'fast2sms'}
+    SMS_ENABLED: ${env:SMS_ENABLED, 'true'}
+    FAST2SMS_API_KEY: ${env:FAST2SMS_API_KEY, 'Bd8l5v37wzxTXeVFEbIDriQPjykRtWS6hguYUM2G1samAcN4ZoJ9qErzCM2HKSP6XQydDkabnc8ogAlI'}
+    # Removed reserved AWS_REGION environment variable
+    
+    # Institute Configuration
+    INSTITUTE_NAME: ${env:INSTITUTE_NAME, 'Aiict'}
+    SUPPORT_PHONE: ${env:SUPPORT_PHONE, '8744001907'}
+
+  # Add these IAM permissions
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:ListTables
+          Resource: "*"
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: 
+            # Template-based table names (from environment variables)
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.STUDENTS_TABLE}"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.STUDENTS_TABLE}/index/*"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.FEES_TABLE}"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.FEES_TABLE}/index/*"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.NOTIFICATION_LOGS_TABLE}"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.NOTIFICATION_LOGS_TABLE}/index/*"
+            # Direct table names (from Resources section)
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/Students-${self:provider.stage}"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/Students-${self:provider.stage}/index/*"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/NotificationLogs-${self:provider.stage}"
+            - "arn:aws:dynamodb:${self:provider.region}:*:table/NotificationLogs-${self:provider.stage}/index/*"
+
+functions:
+  api:
+    handler: src/app.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors:
+            origin: ${self:provider.environment.CORS_ORIGIN} # Restricted to admin.aiict.in in production
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: true # Allow credentials for auth tokens
+      - http:
+          path: /
+          method: ANY
+          cors:
+            origin: ${self:provider.environment.CORS_ORIGIN}
+            allowCredentials: true
+
+  # Scheduled fee reminder (AWS SNS SMS)
+  dailyFeeReminder:
+    handler: src/lambda/feeReminder.handler
+    events:
+      - schedule: 
+          name: DailyFeeReminderSchedule-${self:provider.stage}
+          description: 'Checks for upcoming fee due dates and sends SMS reminders daily at 7 AM IST'
+          rate: cron(0 1 30 * ? *) # Run daily at 6:30 AM IST (1:00 AM UTC)
+          enabled: true
+
+  # Legacy daily notifications (keeping for backward compatibility but disabled)
+  dailyNotifications:
+    handler: src/handlers/fees.checkDueFees
+    events:
+      - schedule:
+          rate: cron(0 2 30 * ? *) # Run daily at 7:30 AM IST (2:00 AM UTC)
+          enabled: false # Disabled as we're using the new implementation
+
+  # Manual notification trigger
+  sendTestNotification:
+    handler: src/handlers/notifications.sendTestMessage
+
+resources:
+  Resources:
+    StudentsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Students-${self:provider.stage}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: registration_no
+            AttributeType: S
+          - AttributeName: course_name
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: RegistrationIndex
+            KeySchema:
+              - AttributeName: registration_no
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+          - IndexName: CourseIndex
+            KeySchema:
+              - AttributeName: course_name
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+              
+    NotificationLogsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: NotificationLogs-${self:provider.stage}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: student_id
+            AttributeType: S
+          - AttributeName: created_at
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          - IndexName: StudentIdIndex
+            KeySchema:
+              - AttributeName: student_id
+                KeyType: HASH
+              - AttributeName: created_at
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+
+# Stage-specific settings
+custom:
+  stages:
+    dev:
+      logRetentionInDays: 7
+      cors: 'http://localhost:3000' # For local development
+    prod:
+      logRetentionInDays: 30
+      cors: 'https://admin.aiict.in'
+      
+  # Optimize package size for faster deployments  
+  package:
+    individually: true
+    excludeDevDependencies: true
+    exclude:
+      - '**/*.test.js'
+      - '**/test-*.js'
+      - 'node_modules/aws-sdk/**' # AWS SDK is already available in Lambda
+      - '*.xlsx'
+      - '.env*'
+      - '*.md'
+

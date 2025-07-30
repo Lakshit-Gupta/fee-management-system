@@ -1,0 +1,39 @@
+{
+  "name": "fee-management-system-backend",
+  "version": "1.0.0",
+  "description": "Backend for the fee management system with SMS notifications via Fast2SMS",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "serverless offline",
+    "deploy": "serverless deploy",
+    "test": "echo \"No tests specified\" && exit 0",
+    "simple": "node utils/simple-server.js",
+    "local": "node utils/local-server.js",
+    "generate-password": "node utils/generate-password.js",
+    "generate-admin-password": "node utils/generate-admin-password.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.11.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "moment": "^2.30.1",
+    "node-cron": "^3.0.2",
+    "serverless-http": "^3.2.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.9.0"
+  },
+  "author": "Your Name",
+  "license": "ISC"
+}
