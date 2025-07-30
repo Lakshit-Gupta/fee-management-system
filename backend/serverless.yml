@@ -14,23 +14,23 @@ provider:
     # Production environment variables
     NODE_ENV: 'production'
     # Security variables for authentication
-    JWT_SECRET: ${env:JWT_SECRET, 'AIICT_JWT_SECRET_2025_PRODUCTION_KEY'} 
-    ADMIN_EMAIL: ${env:ADMIN_EMAIL, 'admin@aiict.in'}
+    JWT_SECRET: ${env:JWT_SECRET, 'YOUR_JWT_SECRET'} 
+    ADMIN_EMAIL: ${env:ADMIN_EMAIL, 'YOUR_ADMIN_EMAIL'}
     # Updated password hash from generate-admin-password.js
-    ADMIN_PASSWORD_HASH: ${env:ADMIN_PASSWORD_HASH, 'ce17a2c957690ff42dadb332e44625e8393dd538423c3418e97e7307767b1e21'} 
-    PASSWORD_SALT: ${env:PASSWORD_SALT, 'aiict_salt_2025'}
+    ADMIN_PASSWORD_HASH: ${env:ADMIN_PASSWORD_HASH, 'YOUR_ADMIN_PASSWORD_HASH'} 
+    PASSWORD_SALT: ${env:PASSWORD_SALT, 'YOUR_PASSWORD_SALT'}
     # CORS configuration for production
     CORS_ORIGIN: 'https://admin.aiict.in'
     
     # Fast2SMS Configuration (New SMS provider)
     NOTIFICATION_PROVIDER: ${env:NOTIFICATION_PROVIDER, 'fast2sms'}
     SMS_ENABLED: ${env:SMS_ENABLED, 'true'}
-    FAST2SMS_API_KEY: ${env:FAST2SMS_API_KEY, 'Bd8l5v37wzxTXeVFEbIDriQPjykRtWS6hguYUM2G1samAcN4ZoJ9qErzCM2HKSP6XQydDkabnc8ogAlI'}
+    FAST2SMS_API_KEY: ${env:FAST2SMS_API_KEY, 'YOUR_FAST2SMS_API_KEY'}
     # Removed reserved AWS_REGION environment variable
     
     # Institute Configuration
-    INSTITUTE_NAME: ${env:INSTITUTE_NAME, 'Aiict'}
-    SUPPORT_PHONE: ${env:SUPPORT_PHONE, '8744001907'}
+    INSTITUTE_NAME: ${env:INSTITUTE_NAME, 'YOUR_NAME'}
+    SUPPORT_PHONE: ${env:SUPPORT_PHONE, 'YOUR_NO'}
 
   # Add these IAM permissions
   iam:
