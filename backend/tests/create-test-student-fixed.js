@@ -58,18 +58,18 @@ async function createTestStudentCorrectSchema() {
   
   try {
     await dynamoDB.put(params).promise();
-    console.log('✅ Test student created successfully:');
+    console.log(' Test student created successfully:');
     console.log('   ID:', studentId);
     console.log('   Name:', STUDENT_NAME);
     console.log('   Phone:', PHONE_NUMBER);
     console.log('   Fee amount:', 1000);
     console.log('   Due date:', tomorrow);
-    console.log('\n📱 The next scheduled fee reminder should send an SMS to this number!');
+    console.log('\n The next scheduled fee reminder should send an SMS to this number!');
     console.log('   (According to the scheduled cron job running every 10 minutes)');
     
     return student;
   } catch (error) {
-    console.error('❌ Error creating test student:', error);
+    console.error(' Error creating test student:', error);
     throw error;
   }
 }

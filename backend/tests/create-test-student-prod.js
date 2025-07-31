@@ -36,7 +36,7 @@ async function createTestStudent() {
   const student = {
     id: studentId,
     name: STUDENT_NAME,
-    phone_no: PHONE_NUMBER,  // IMPORTANT: phone_no not phone
+    phone_no: PHONE_NUMBER,  
     fathers_name: 'Test Father',
     registration_no: `TEST-${Math.floor(Math.random() * 10000)}`,
     course_name: 'Test Course',
@@ -58,18 +58,18 @@ async function createTestStudent() {
   
   try {
     await dynamoDB.put(params).promise();
-    console.log('✅ Test student created successfully:');
+    console.log(' Test student created successfully:');
     console.log('   ID:', studentId);
     console.log('   Name:', STUDENT_NAME);
     console.log('   Phone:', PHONE_NUMBER);
     console.log('   Fee amount:', 1000);
     console.log('   Due date:', tomorrow);
-    console.log('\n📱 The Lambda function should now send an SMS when it runs!');
+    console.log('\n The Lambda function should now send an SMS when it runs!');
     console.log('   (Cron job is scheduled to run every 10 minutes)');
     
     return student;
   } catch (error) {
-    console.error('❌ Error creating test student:', error);
+    console.error(' Error creating test student:', error);
     throw error;
   }
 }

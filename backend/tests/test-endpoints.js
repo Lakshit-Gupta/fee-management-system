@@ -21,11 +21,11 @@ let authToken = '';
 // Utility for pretty printing
 const print = {
   title: (text) => console.log(chalk.cyan.bold(`\n=== ${text} ===`)),
-  success: (text) => console.log(chalk.green(`✅ ${text}`)),
-  error: (text) => console.log(chalk.red(`❌ ${text}`)),
-  info: (text) => console.log(chalk.yellow(`ℹ️ ${text}`)),
+  success: (text) => console.log(chalk.green(` ${text}`)),
+  error: (text) => console.log(chalk.red(` ${text}`)),
+  info: (text) => console.log(chalk.yellow(` ${text}`)),
   json: (obj) => console.log(JSON.stringify(obj, null, 2)),
-  header: () => console.log(chalk.cyan.bold('\n🔍 API ENDPOINT VERIFICATION')),
+  header: () => console.log(chalk.cyan.bold('\n API ENDPOINT VERIFICATION')),
   divider: () => console.log(chalk.gray('--------------------------------------------------')),
   summary: (results) => {
     const total = results.length;
@@ -40,9 +40,9 @@ const print = {
     
     results.forEach(result => {
       if (result.status === 'passed') {
-        console.log(chalk.green(`✅ ${result.name}: PASSED`));
+        console.log(chalk.green(` ${result.name}: PASSED`));
       } else {
-        console.log(chalk.red(`❌ ${result.name}: FAILED - ${result.error}`));
+        console.log(chalk.red(` ${result.name}: FAILED - ${result.error}`));
       }
     });
   }

@@ -152,14 +152,14 @@ app.get('/wallet-balance', async (req, res) => {
 const PORT = 3002; // Use a different port to avoid conflicts
 app.listen(PORT, () => {
   console.log(`
-🚀 Fast2SMS Test Server
+ Fast2SMS Test Server
 ============================
-✅ Server running at http://localhost:${PORT}
-✅ Health check: http://localhost:${PORT}/health
-✅ Direct SMS test: http://localhost:${PORT}/direct-test
-✅ Wallet balance: http://localhost:${PORT}/wallet-balance
+ Server running at http://localhost:${PORT}
+ Health check: http://localhost:${PORT}/health
+ Direct SMS test: http://localhost:${PORT}/direct-test
+ Wallet balance: http://localhost:${PORT}/wallet-balance
 
-FAST2SMS_API_KEY is ${process.env.FAST2SMS_API_KEY ? 'configured ✅' : 'NOT configured ❌'}
-SMS_ENABLED is ${process.env.SMS_ENABLED === 'true' ? 'true ✅' : 'not enabled ❌'}
+FAST2SMS_API_KEY is ${process.env.FAST2SMS_API_KEY ? 'configured ✅' : 'NOT configured '}
+SMS_ENABLED is ${process.env.SMS_ENABLED === 'true' ? 'true ✅' : 'not enabled '}
   `);
 });

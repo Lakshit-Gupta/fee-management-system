@@ -32,7 +32,7 @@ async function triggerFeeReminder() {
   try {
     const result = await lambda.invoke(params).promise();
     
-    console.log('\n✅ Lambda function executed with status:', result.StatusCode);
+    console.log('\n Lambda function executed with status:', result.StatusCode);
     
     if (result.Payload) {
       const payload = JSON.parse(result.Payload);
@@ -45,7 +45,7 @@ async function triggerFeeReminder() {
       response: result.Payload ? JSON.parse(result.Payload) : null
     };
   } catch (error) {
-    console.error('❌ ERROR triggering Lambda function:', error);
+    console.error(' ERROR triggering Lambda function:', error);
     return {
       success: false,
       error: error.message

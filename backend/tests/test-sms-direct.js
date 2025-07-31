@@ -15,15 +15,15 @@ const FAST2SMS_API_KEY = process.env.FAST2SMS_API_KEY;
 const PHONE_NUMBER = process.argv[2] || '8588851907';
 
 if (!FAST2SMS_API_KEY) {
-  console.error('❌ ERROR: FAST2SMS_API_KEY environment variable is not set!');
+  console.error(' ERROR: FAST2SMS_API_KEY environment variable is not set!');
   console.log('   Please check your .env.local file or set the variable.');
   process.exit(1);
 }
 
 async function testSMS() {
-  console.log('🚀 Testing Fast2SMS API directly');
-  console.log(`📱 Sending test SMS to: +91${PHONE_NUMBER}`);
-  console.log(`🔑 API Key present: ${FAST2SMS_API_KEY ? 'YES' : 'NO'}`);
+  console.log(' Testing Fast2SMS API directly');
+  console.log(` Sending test SMS to: +91${PHONE_NUMBER}`);
+  console.log(` API Key present: ${FAST2SMS_API_KEY ? 'YES' : 'NO'}`);
   
   // Print the masked API key for verification
   const maskedKey = FAST2SMS_API_KEY.substring(0, 4) + '...' + 
@@ -35,7 +35,7 @@ async function testSMS() {
   
   try {
     // Log the API request details
-    console.log('\n📤 Sending API request:');
+    console.log('\n Sending API request:');
     console.log(`   URL: https://www.fast2sms.com/dev/bulkV2`);
     console.log(`   Method: GET`);
     console.log(`   Message: ${message}`);
@@ -56,11 +56,11 @@ async function testSMS() {
     });
     
     // Log the API response
-    console.log('\n📥 API Response:');
+    console.log('\n API Response:');
     console.log(JSON.stringify(response.data, null, 2));
     
     if (response.data && response.data.return === true) {
-      console.log('\n✅ SUCCESS: SMS sent successfully!');
+      console.log('\n SUCCESS: SMS sent successfully!');
       console.log(`   Message ID: ${response.data.message_id}`);
       console.log(`   Request ID: ${response.data.request_id}`);
     } else {

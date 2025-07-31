@@ -30,55 +30,55 @@ const PHONE_NUMBER = process.argv[2] || '8588851907'; // Default or command line
 const STUDENT_NAME = 'TEST STUDENT';
 
 async function runTest() {
-  console.log('🧪 Starting SMS Reminder System Test');
+  console.log(' Starting SMS Reminder System Test');
   console.log('═════════════════════════════════════');
   console.log(`📱 Testing with phone number: +91${PHONE_NUMBER}`);
   
   // Step 1: Create test student
-  console.log('\n📝 Step 1: Creating test student record...');
+  console.log('\n Step 1: Creating test student record...');
   const studentId = await createTestStudent();
   
   if (!studentId) {
-    console.error('❌ Failed to create test student. Exiting test.');
+    console.error(' Failed to create test student. Exiting test.');
     return;
   }
   
   // Step 2: Verify student record
-  console.log('\n🔍 Step 2: Verifying student record...');
+  console.log('\n Step 2: Verifying student record...');
   const student = await getStudentById(studentId);
   
   if (!student) {
-    console.error('❌ Student record verification failed. Exiting test.');
+    console.error(' Student record verification failed. Exiting test.');
     return;
   }
   
-  console.log('✅ Student record verified:', {
+  console.log(' Student record verified:', {
     id: student.id,
     name: student.name,
     phone: student.phone
   });
   
   // Step 3: Manually trigger fee reminder
-  console.log('\n📲 Step 3: Triggering fee reminder function...');
+  console.log('\n Step 3: Triggering fee reminder function...');
   const reminderResult = await triggerFeeReminder();
   
   if (!reminderResult.success) {
-    console.error('❌ Fee reminder function failed:', reminderResult.error);
+    console.error(' Fee reminder function failed:', reminderResult.error);
   } else {
-    console.log('✅ Fee reminder function executed with status:', reminderResult.statusCode);
+    console.log(' Fee reminder function executed with status:', reminderResult.statusCode);
   }
   
   // Step 4: Summary
-  console.log('\n📊 Test Summary');
+  console.log('\n Test Summary');
   console.log('═════════════════');
   console.log('1. Test student created with ID:', studentId);
   console.log('2. Phone number to receive SMS:', `+91${PHONE_NUMBER}`);
   console.log('3. Due date set to:', moment().add(1, 'days').format('YYYY-MM-DD'));
-  console.log('4. Fee reminder function triggered:', reminderResult.success ? '✅ Success' : '❌ Failed');
+  console.log('4. Fee reminder function triggered:', reminderResult.success ? ' Success' : ' Failed');
   
-  console.log('\n📱 CHECK YOUR PHONE NOW');
+  console.log('\n CHECK YOUR PHONE NOW');
   console.log('If the system is working correctly, you should receive an SMS reminder within a few minutes.');
-  console.log('\nℹ️ Note: If you don\'t receive an SMS, try these troubleshooting steps:');
+  console.log('\n Note: If you don\'t receive an SMS, try these troubleshooting steps:');
   console.log('1. Check if the student record was created with the correct phone number');
   console.log('2. Verify Fast2SMS API key is correctly configured');
   console.log('3. Check Lambda function logs in AWS CloudWatch');
@@ -118,11 +118,11 @@ async function createTestStudent() {
   
   try {
     await dynamoDB.put(studentParams).promise();
-    console.log('✅ Student record created successfully with fee due date:', tomorrow);
+    console.log(' Student record created successfully with fee due date:', tomorrow);
     
     return studentId;
   } catch (error) {
-    console.error('❌ Error creating test records:', error);
+    console.error(' Error creating test records:', error);
     return null;
   }
 }
@@ -137,7 +137,7 @@ async function getStudentById(id) {
     const result = await dynamoDB.get(params).promise();
     return result.Item;
   } catch (error) {
-    console.error('❌ Error fetching student:', error);
+    console.error(' Error fetching student:', error);
     return null;
   }
 }

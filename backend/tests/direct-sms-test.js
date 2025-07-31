@@ -22,7 +22,7 @@ async function sendTestSMS() {
     console.log(`API Key: ${apiKey ? apiKey.substring(0, 5) + '...' : 'Not set'}`);
     
     if (!apiKey) {
-        console.error('❌ ERROR: FAST2SMS_API_KEY not set in .env.local');
+        console.error(' ERROR: FAST2SMS_API_KEY not set in .env.local');
         process.exit(1);
     }
     
@@ -43,15 +43,15 @@ async function sendTestSMS() {
         console.log(JSON.stringify(response.data, null, 2));
         
         if (response.data.return === true) {
-            console.log('\n✅ SUCCESS: SMS sent successfully!');
+            console.log('\n SUCCESS: SMS sent successfully!');
             console.log('Request ID:', response.data.request_id);
             console.log('Message ID:', response.data.message_id);
         } else {
-            console.log('\n❌ ERROR: Fast2SMS API returned an error');
+            console.log('\n ERROR: Fast2SMS API returned an error');
             console.log(response.data);
         }
     } catch (error) {
-        console.error('\n❌ ERROR sending SMS:', error.message);
+        console.error('\n ERROR sending SMS:', error.message);
         if (error.response) {
             console.error('Status:', error.response.status);
             console.error('Response:', error.response.data);

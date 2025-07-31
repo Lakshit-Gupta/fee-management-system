@@ -69,7 +69,7 @@ function makeRequest(endpoint) {
 
 // Main function to test all endpoints
 async function testEndpoints() {
-  console.log('🔍 API ENDPOINT CHECK');
+  console.log(' API ENDPOINT CHECK');
   console.log('====================');
   console.log(`API Base: ${API_BASE}`);
   
@@ -79,10 +79,10 @@ async function testEndpoints() {
   for (const endpoint of endpoints) {
     const result = await makeRequest(endpoint);
     if (result.success) {
-      console.log(`✅ ${endpoint.name}: PASSED`);
+      console.log(` ${endpoint.name}: PASSED`);
       passed++;
     } else {
-      console.log(`❌ ${endpoint.name}: FAILED`);
+      console.log(` ${endpoint.name}: FAILED`);
       failed++;
     }
   }

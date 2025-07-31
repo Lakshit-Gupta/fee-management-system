@@ -31,14 +31,14 @@ const checkStudents = async () => {
     // Check specifically for our test student
     const testStudent = result.Items.find(s => s.phone_no === '+918588851907' || s.phone === '+918588851907');
     if (testStudent) {
-      console.log('\n✅ Found our test student for cron testing!');
+      console.log('\n Found our test student for cron testing!');
       console.log('Full student data:', JSON.stringify(testStudent, null, 2));
     } else {
-      console.log('\n❌ Test student not found!');
+      console.log('\n Test student not found!');
     }
     
   } catch (error) {
-    console.error('❌ Error checking students:', error);
+    console.error(' Error checking students:', error);
   }
 };
 

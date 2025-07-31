@@ -70,7 +70,7 @@ async function createTestStudent() {
     await dynamodb.put(feeParams).promise();
     console.log('Fee record created!');
     
-    console.log('\n✅ SUCCESS: Test student created with the following details:');
+    console.log('\n SUCCESS: Test student created with the following details:');
     console.log('- Student ID:', studentId);
     console.log('- Name: Test Student (SMS)');
     console.log('- Phone:', phoneNumber);
@@ -84,7 +84,7 @@ async function createTestStudent() {
       dueDate
     };
   } catch (error) {
-    console.error('❌ ERROR creating test student:', error);
+    console.error(' ERROR creating test student:', error);
     return {
       success: false,
       error: error.message
