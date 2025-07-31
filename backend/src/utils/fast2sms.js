@@ -20,7 +20,7 @@ class Fast2SMSService {
         }
         
         if (!this.apiKey) {
-            console.warn('⚠️ FAST2SMS_API_KEY not configured');
+            console.warn('FAST2SMS_API_KEY not configured');
         }
     }
 
@@ -31,13 +31,13 @@ class Fast2SMSService {
         try {
             const balance = await this.checkWalletBalance();
             if (balance.success) {
-                console.log('✅ Fast2SMS service verified');
+                console.log('Fast2SMS service verified');
                 console.log(`   Wallet Balance: ₹${balance.balance}`);
                 return true;
             }
             return false;
         } catch (error) {
-            console.error('❌ Fast2SMS service verification failed:', error.message);
+            console.error('Fast2SMS service verification failed:', error.message);
             return false;
         }
     }

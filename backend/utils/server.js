@@ -64,12 +64,12 @@ app.get('/test', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`
-🚀 Fee Management System Backend Server
+Fee Management System Backend Server
 =====================================
-✅ Local server running at http://localhost:${PORT}
-✅ Try the health endpoint: http://localhost:${PORT}/health
-✅ Test SMS endpoint: http://localhost:${PORT}/test
-✅ Admin login: http://localhost:${PORT}/api/auth/login
+Local server running at http://localhost:${PORT}
+Try the health endpoint: http://localhost:${PORT}/health
+Test SMS endpoint: http://localhost:${PORT}/test
+Admin login: http://localhost:${PORT}/api/auth/login
 
 Environment: ${process.env.NODE_ENV || 'development'}
   `);

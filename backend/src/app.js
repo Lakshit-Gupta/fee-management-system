@@ -21,7 +21,7 @@ const requiredEnvVars = ['AWS_REGION', 'AISENSY_API_KEY', 'AISENSY_PARTNER_ID'];
 const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
 
 if (missingVars.length > 0) {
-    console.warn(`⚠️ Missing environment variables: ${missingVars.join(', ')}`);
+    console.warn(`Missing environment variables: ${missingVars.join(', ')}`);
     console.warn('Some features may not work correctly!');
 }
 

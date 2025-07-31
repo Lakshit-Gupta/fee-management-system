@@ -209,7 +209,7 @@ const StudentList = () => {
                         disabled={loading || student.fees?.status === 'paid'}
                         title="Send WhatsApp Reminder"
                       >
-                        📱
+                        SMS
                       </Button>
                     </div>
                   </td>

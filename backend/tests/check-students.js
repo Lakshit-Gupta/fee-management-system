@@ -9,7 +9,7 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 const checkStudents = async () => {
   try {
-    console.log('🔍 Checking all students in database...');
+    console.log('Checking all students in database...');
     
     const params = {
       TableName: process.env.STUDENTS_TABLE || 'Students'

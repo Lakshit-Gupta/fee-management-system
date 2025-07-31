@@ -200,7 +200,7 @@ const Dashboard = () => {
                                 onClick={() => handleSendReminder(student)}
                                 title="Send WhatsApp Reminder"
                               >
-                                📱
+                                SMS
                               </Button>
                             </td>
                           </tr>

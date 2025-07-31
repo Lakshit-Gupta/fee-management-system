@@ -64,12 +64,12 @@ async function testSMS() {
       console.log(`   Message ID: ${response.data.message_id}`);
       console.log(`   Request ID: ${response.data.request_id}`);
     } else {
-      console.log('\n❌ FAILURE: SMS sending failed!');
+      console.log('\n FAILURE: SMS sending failed!');
       console.log(`   Message: ${response.data.message}`);
     }
     
   } catch (error) {
-    console.error('\n❌ ERROR making API request:');
+    console.error('\n ERROR making API request:');
     
     if (error.response) {
       // The request was made and the server responded with a status code

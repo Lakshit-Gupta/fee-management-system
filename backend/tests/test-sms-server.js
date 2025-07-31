@@ -38,7 +38,7 @@ app.get('/health', (req, res) => {
 /**
  * Direct Fast2SMS test endpoint
  * 
- * This endpoint directly calls the Fast2SMS API without any intermediate layers
+ * Directly calls the Fast2SMS API without any intermediate layers
  * to identify issues with the integration
  */
 app.get('/direct-test', async (req, res) => {
@@ -159,7 +159,7 @@ app.listen(PORT, () => {
  Direct SMS test: http://localhost:${PORT}/direct-test
  Wallet balance: http://localhost:${PORT}/wallet-balance
 
-FAST2SMS_API_KEY is ${process.env.FAST2SMS_API_KEY ? 'configured ✅' : 'NOT configured '}
-SMS_ENABLED is ${process.env.SMS_ENABLED === 'true' ? 'true ✅' : 'not enabled '}
+FAST2SMS_API_KEY is ${process.env.FAST2SMS_API_KEY ? 'configured' : 'NOT configured'}
+SMS_ENABLED is ${process.env.SMS_ENABLED === 'true' ? 'true' : 'not enabled'}
   `);
 });

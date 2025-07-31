@@ -166,7 +166,7 @@ const FeeManagement = () => {
                       disabled={fee.status === 'paid'}
                       title="Send WhatsApp Reminder"
                     >
-                      📱
+                      SMS
                     </Button>
                   </td>
                 </tr>

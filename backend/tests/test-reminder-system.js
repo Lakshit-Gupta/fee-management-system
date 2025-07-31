@@ -32,7 +32,7 @@ const STUDENT_NAME = 'TEST STUDENT';
 async function runTest() {
   console.log(' Starting SMS Reminder System Test');
   console.log('═════════════════════════════════════');
-  console.log(`📱 Testing with phone number: +91${PHONE_NUMBER}`);
+  console.log(`Testing with phone number: +91${PHONE_NUMBER}`);
   
   // Step 1: Create test student
   console.log('\n Step 1: Creating test student record...');
@@ -78,7 +78,7 @@ async function runTest() {
   
   console.log('\n CHECK YOUR PHONE NOW');
   console.log('If the system is working correctly, you should receive an SMS reminder within a few minutes.');
-  console.log('\n Note: If you don\'t receive an SMS, try these troubleshooting steps:');
+  console.log('\n If you don\'t receive an SMS, try these troubleshooting steps:');
   console.log('1. Check if the student record was created with the correct phone number');
   console.log('2. Verify Fast2SMS API key is correctly configured');
   console.log('3. Check Lambda function logs in AWS CloudWatch');

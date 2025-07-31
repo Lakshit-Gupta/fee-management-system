@@ -65,7 +65,7 @@ exports.handler = async (event, context) => {
         studentsToNotify.forEach(student => {
             // Skip students without a phone number
             if (!student.phone_no) {
-                console.log(`⚠️ Student ${student.name} has no phone number. Skipping.`);
+                console.log(`Student ${student.name} has no phone number. Skipping.`);
                 return;
             }
             
@@ -88,7 +88,7 @@ exports.handler = async (event, context) => {
         
         console.log(`Grouped ${studentsToNotify.length} students into ${Object.keys(studentsByPhone).length} unique phone numbers`);
         if (duplicateCount > 0) {
-            console.log(`📱 Prevented ${duplicateCount} duplicate messages to the same phone numbers`);
+            console.log(`Prevented ${duplicateCount} duplicate messages to the same phone numbers`);
         }
         
         // Send only one notification per phone number

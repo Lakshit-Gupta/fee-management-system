@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Card, Container, Row, Col, Alert, Spinner } from 'react-bootstrap';
+import { Form, Button, Card, Container        registration_no: `REG-${year}${month}-${initials}`, Row, Col, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API_BASE_URL } from '../config';

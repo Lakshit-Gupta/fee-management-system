@@ -299,13 +299,13 @@ app.get('/api/export/fees', (req, res) => {
 const PORT = 3001; // Explicitly set to 3001 to avoid conflicts
 app.listen(PORT, () => {
   console.log(`
-🚀 Simple Test Server Running
+Simple Test Server Running
 ============================
-✅ Local server running at http://localhost:${PORT}
-✅ Health endpoint: http://localhost:${PORT}/health
-✅ Test SMS endpoint: http://localhost:${PORT}/test
-✅ Mock auth endpoint: http://localhost:${PORT}/api/auth/login
+Local server running at http://localhost:${PORT}
+Health endpoint: http://localhost:${PORT}/health
+Test SMS endpoint: http://localhost:${PORT}/test
+Mock auth endpoint: http://localhost:${PORT}/api/auth/login
 
-Note: This is a simplified test server with mock responses.
+This is a simplified test server with mock responses.
   `);
 });

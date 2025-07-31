@@ -75,7 +75,7 @@ app.get('/debug/sms-template', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
     console.log(`
-🚀 LOCAL TEST SERVER STARTED
+LOCAL TEST SERVER STARTED
 
 Server running at: http://localhost:${PORT}
 Environment: ${process.env.NODE_ENV}
