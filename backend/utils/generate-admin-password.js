@@ -1,5 +1,5 @@
 /**
- * Password Generator for AIICT Admin Panel
+ * Password Generator for Admin Panel
  * 
  * Run this script to generate a new password:
  * node generate-admin-password.js [new-password]
@@ -10,7 +10,7 @@
 const crypto = require('crypto');
 
 // Configuration (should match auth.js)
-const SALT = process.env.PASSWORD_SALT || 'aiict_salt_2025';
+const SALT = process.env.PASSWORD_SALT || 'YOUR_SALT';
 const DEFAULT_PASSWORD_LENGTH = 12;
 
 // Generate a secure random password if none provided
@@ -38,7 +38,7 @@ function hashPassword(password, salt) {
 const newPassword = process.argv[2] || generateSecurePassword();
 const hashedPassword = hashPassword(newPassword, SALT);
 
-console.log('\n=== AIICT Admin Password Generator ===\n');
+console.log('\n=== Admin Password Generator ===\n');
 
 if (!process.argv[2]) {
   console.log(`Generated secure password: ${newPassword}`);
@@ -55,7 +55,7 @@ console.log('1. Edit src/handlers/auth.js and update ADMIN_PASSWORD_HASH with th
 console.log('   OR');
 console.log('2. Set the ADMIN_PASSWORD_HASH environment variable in serverless.yml');
 console.log('\nLogin credentials:');
-console.log('Email: admin@aiict.in (or the email set in your environment)');
+console.log('Email: YOUR_ADMIN_EMAIL (or the email set in your environment)');
 console.log(`Password: ${newPassword}\n`);
 
 console.log('=== Remember to deploy your changes! ===\n');

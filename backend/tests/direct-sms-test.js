@@ -12,8 +12,8 @@ const axios = require('axios');
 
 async function sendTestSMS() {
     // Phone number from our test
-    const phoneNumber = '8588851907';
-    const message = 'AIICT: Direct test SMS - Your fee of Rs.5000 is due on 30/07/2025. Please settle your pending dues. Reply STOP to opt out.';
+    const phoneNumber = 'YOUR_TEST_PHONE';
+    const message = 'Direct test SMS - Your fee of Rs.5000 is due on 30/07/2025. Please settle your pending dues. Reply STOP to opt out.';
     const apiKey = process.env.FAST2SMS_API_KEY;
 
     console.log('--- SMS TEST ---');

@@ -26,8 +26,8 @@ app.get('/test', async (req, res) => {
         
         // Send test message to the same number used in production
         const result = await sendSMSNotification(
-            "8588851907",
-            "Hi Divij From LOCAL SERVER, You are receiving Rs.5 message (test)",
+            "YOUR_TEST_PHONE",
+            "Test message from LOCAL SERVER",
             { studentId: "test-student", messageType: "local-test" }
         );
         

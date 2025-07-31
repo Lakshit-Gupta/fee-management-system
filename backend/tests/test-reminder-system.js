@@ -17,7 +17,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
@@ -26,7 +26,7 @@ const lambda = new AWS.Lambda();
 // Configurations
 const STUDENT_TABLE = process.env.STUDENT_TABLE || 'Students-pro';
 const FEE_TABLE = process.env.FEE_TABLE || 'Students-pro'; // We store fees in the same table
-const PHONE_NUMBER = process.argv[2] || '8588851907'; // Default or command line arg
+const PHONE_NUMBER = process.argv[2] || 'YOUR_TEST_PHONE'; // Default or command line arg
 const STUDENT_NAME = 'TEST STUDENT';
 
 async function runTest() {
@@ -144,7 +144,7 @@ async function getStudentById(id) {
 
 async function triggerFeeReminder() {
   const params = {
-    FunctionName: 'fee-management-system-Aiict-pro-dailyFeeReminder',
+    FunctionName: 'YOUR_LAMBDA_FUNCTION_NAME',
     InvocationType: 'RequestResponse',
     Payload: JSON.stringify({
       source: 'manual-test',

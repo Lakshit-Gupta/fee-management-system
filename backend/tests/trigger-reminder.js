@@ -12,7 +12,7 @@ const AWS = require('aws-sdk');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const lambda = new AWS.Lambda();
@@ -21,7 +21,7 @@ async function triggerFeeReminder() {
   console.log('Manually triggering fee reminder Lambda function...');
   
   const params = {
-    FunctionName: 'fee-management-system-Aiict-pro-dailyFeeReminder',
+    FunctionName: 'YOUR_LAMBDA_FUNCTION_NAME',
     InvocationType: 'RequestResponse', // Wait for result
     Payload: JSON.stringify({
       source: 'manual-trigger',

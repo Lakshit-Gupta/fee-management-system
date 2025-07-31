@@ -115,8 +115,8 @@ router.post('/broadcast', async (req, res) => {
 router.get('/status', async (req, res) => {
     try {
         const smsEnabled = process.env.SMS_ENABLED === 'true';
-        const awsRegion = process.env.AWS_REGION || 'ap-south-1';
-        const senderId = process.env.SMS_SENDER_ID || 'AIICT';
+        const awsRegion = process.env.AWS_REGION || 'YOUR_AWS_REGION';
+        const senderId = process.env.SMS_SENDER_ID || 'YOUR_SMS_SENDER_ID';
         
         res.status(200).json({
             success: true,

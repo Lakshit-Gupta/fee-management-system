@@ -21,7 +21,7 @@ const AppNavbar = () => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">AIICT Fee Management</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Fee Management System</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           {isAuthenticated ? (

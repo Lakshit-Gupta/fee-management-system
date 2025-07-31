@@ -12,7 +12,7 @@ const axios = require('axios');
 
 // Constants
 const FAST2SMS_API_KEY = process.env.FAST2SMS_API_KEY;
-const PHONE_NUMBER = process.argv[2] || '8588851907';
+const PHONE_NUMBER = process.argv[2] || 'YOUR_TEST_PHONE';
 
 if (!FAST2SMS_API_KEY) {
   console.error(' ERROR: FAST2SMS_API_KEY environment variable is not set!');

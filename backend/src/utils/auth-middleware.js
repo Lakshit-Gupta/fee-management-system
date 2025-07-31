@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 // JWT secret (should match the one in auth.js)
-const JWT_SECRET = process.env.JWT_SECRET || 'AIICT_JWT_SECRET_2025_PRODUCTION_KEY';
+const JWT_SECRET = process.env.JWT_SECRET || 'YOUR_JWT_SECRET';
 
 /**
  * Middleware to authenticate JWT tokens

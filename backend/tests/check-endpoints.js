@@ -4,13 +4,13 @@
 const https = require('https');
 
 // API Base URL
-const API_BASE = 'https://v9xret02rk.execute-api.ap-south-1.amazonaws.com/pro';
+const API_BASE = 'YOUR_API_ENDPOINT';
 
 // Endpoints to check
 const endpoints = [
   { path: '/test', method: 'GET', name: 'SMS Test Endpoint' },
   { path: '/health', method: 'GET', name: 'Health Check' },
-  { path: '/api/auth/login', method: 'POST', name: 'Authentication', body: { email: 'admin@aiict.in', password: 'admin123' } }
+  { path: '/api/auth/login', method: 'POST', name: 'Authentication', body: { email: 'YOUR_ADMIN_EMAIL', password: 'YOUR_ADMIN_PASSWORD' } }
 ];
 
 // Function to make HTTP request

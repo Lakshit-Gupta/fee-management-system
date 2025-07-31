@@ -26,7 +26,7 @@ async function notifyStudent(phoneNumber, studentName, amount, courseName, dueDa
     console.log('Legacy notifyStudent function called - redirecting to sendCustomSMS');
     
     // Create a formatted message
-    const message = `AIICT Fee Reminder: Hi ${studentName}, your fee of Rs.${amount} for ${courseName} is due on ${dueDate}. Please settle your pending dues. Reply STOP to opt out.`;
+    const message = `Fee Reminder: Hi ${studentName}, your fee of Rs.${amount} for ${courseName} is due on ${dueDate}. Please settle your pending dues. Reply STOP to opt out.`;
     
     // Send using the new function
     return sendCustomSMS(phoneNumber, message, {
@@ -45,7 +45,7 @@ async function notifyStudent(phoneNumber, studentName, amount, courseName, dueDa
 async function notifyOwner(ownerPhone, message, dueDate, totalAmount) {
     console.log('Legacy notifyOwner function called - redirecting to sendCustomSMS');
     // Create a proper formatted message instead of sending raw message
-    const formattedMessage = `AIICT Admin: ${message} have fees due on ${dueDate || 'upcoming days'}. Total pending amount: Rs.${totalAmount || 0}`;
+    const formattedMessage = `Admin Notification: ${message} have fees due on ${dueDate || 'upcoming days'}. Total pending amount: Rs.${totalAmount || 0}`;
     return sendCustomSMS(ownerPhone, formattedMessage, {type: 'owner_notification', totalAmount, dueDate});
 }
 
@@ -56,7 +56,7 @@ async function notifyPaymentConfirmation(phoneNumber, studentName, amount, cours
     console.log('Legacy notifyPaymentConfirmation called - redirecting to sendCustomSMS');
     
     // Create a formatted payment confirmation message
-    const message = `AIICT Payment Confirmation: Payment of Rs.${amount} received for ${studentName}'s ${courseName} course. Receipt ID: ${receiptId}. Thank you!`;
+    const message = `Payment Confirmation: Payment of Rs.${amount} received for ${studentName}'s ${courseName} course. Receipt ID: ${receiptId}. Thank you!`;
     
     // Send using the new function
     return sendCustomSMS(phoneNumber, message, {

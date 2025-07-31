@@ -13,7 +13,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -22,7 +22,7 @@ const FEES_TABLE = process.env.FEES_TABLE || 'Fees-local';
 
 async function createTestStudent() {
   const studentId = uuidv4();
-  const phoneNumber = '8588851907'; // Your phone number
+  const phoneNumber = 'YOUR_TEST_PHONE'; // Your phone number
   
   // Set due date to tomorrow for testing
   const today = new Date();

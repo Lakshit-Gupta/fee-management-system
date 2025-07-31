@@ -44,8 +44,8 @@ app.get('/health', (req, res) => {
 app.get('/direct-test', async (req, res) => {
   try {
     const apiKey = process.env.FAST2SMS_API_KEY;
-    const phoneNumber = '8588851907';
-    const message = 'AIICT: Direct test of Fast2SMS API with GSM-compatible message using Rs. instead of ₹ symbol';
+    const phoneNumber = 'YOUR_TEST_PHONE';
+    const message = 'Direct test of Fast2SMS API with GSM-compatible message using Rs. instead of ₹ symbol';
     
     console.log(`Sending direct SMS test to ${phoneNumber}`);
     console.log(`API Key: ${apiKey ? apiKey.substring(0, 5) + '...' : 'Not set'}`);

@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     // Do basic AWS configuration with region from environment
     AWS.config.update({
-      region: process.env.AWS_REGION || 'ap-south-1'
+      region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
     });
 
     // Create separate DynamoDB client to isolate any issues

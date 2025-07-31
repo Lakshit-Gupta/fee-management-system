@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs16.x
   stage: ${opt:stage, '<stage_name>'}
-  region: ap-south-1
+  region: YOUR_AWS_REGION
   deploymentBucket:
     name: <YOUR_S3_Deployment_Bucket_Name> # Specify existing bucket name here
   environment:
@@ -20,7 +20,7 @@ provider:
     ADMIN_PASSWORD_HASH: ${env:ADMIN_PASSWORD_HASH, 'YOUR_ADMIN_PASSWORD_HASH'} 
     PASSWORD_SALT: ${env:PASSWORD_SALT, 'YOUR_PASSWORD_SALT'}
     # CORS configuration for production
-    CORS_ORIGIN: 'https://admin.aiict.in'
+    CORS_ORIGIN: 'YOUR_FRONTEND_URL'
     
     # Fast2SMS Configuration (New SMS provider)
     NOTIFICATION_PROVIDER: ${env:NOTIFICATION_PROVIDER, 'fast2sms'}

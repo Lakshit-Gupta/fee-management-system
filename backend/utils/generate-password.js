@@ -9,7 +9,7 @@
 const crypto = require('crypto');
 
 // The salt should match what's in auth.js / environment variables
-const SALT = process.env.PASSWORD_SALT || 'aiict_salt_2025';
+const SALT = process.env.PASSWORD_SALT || 'YOUR_SALT';
 
 if (process.argv.length < 3) {
   console.error('Please provide a password to hash.');
@@ -22,7 +22,7 @@ const password = process.argv[2];
 // Hash the password with the salt
 const hash = crypto.createHash('sha256').update(password + SALT).digest('hex');
 
-console.log('\n=== AIICT Admin Password Generator ===');
+console.log('\n=== Admin Password Generator ===');
 console.log('\nYour password hash:');
 console.log(hash);
 console.log('\nTo use this password in production:');

@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken');
 
 // Secure credentials with environment variables support
 // In production, add these to your environment variables
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@aiict.in';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'YOUR_ADMIN_EMAIL';
 // Password: Admin@123 (securely hashed with salt)
-const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || 'e86f78a8a3caf0b60d8e74e5942aa6d86dc150cd3c03338aef25b7d2d7e3acc7'; // Legacy hash without salt
-const SALT = process.env.PASSWORD_SALT || 'aiict_salt_2025'; // Add a salt for better security
-const JWT_SECRET = process.env.JWT_SECRET || 'AIICT_JWT_SECRET_2025_PRODUCTION_KEY';
+const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || 'YOUR_PASSWORD_HASH'; // Legacy hash without salt
+const SALT = process.env.PASSWORD_SALT || 'YOUR_SALT'; // Add a salt for better security
+const JWT_SECRET = process.env.JWT_SECRET || 'YOUR_JWT_SECRET';
 
 // Helper function to hash passwords with salt
 const hashPassword = (password) => {

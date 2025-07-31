@@ -35,8 +35,8 @@ app.get('/health', (req, res) => {
 app.get('/test', async (req, res) => {
   try {
     const axios = require('axios');
-    const phoneNumber = '8588851907';
-    const message = 'AIICT: Testing from Local Server - Your fee of Rs.5000 is due on 30/07/2025. Pay now: https://admin.aiict.in/payment';
+    const phoneNumber = 'YOUR_TEST_PHONE';
+    const message = 'TEST: Testing from Local Server - Your fee of Rs.5000 is due on 30/07/2025. Pay now: YOUR_PAYMENT_URL';
     const apiKey = process.env.FAST2SMS_API_KEY;
     
     console.log('TEST ENDPOINT: Sending real SMS to', phoneNumber);
@@ -96,7 +96,7 @@ app.get('/test', async (req, res) => {
 app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
   
-  if (email === 'admin@aiict.in' && password === 'admin123') {
+  if (email === 'YOUR_ADMIN_EMAIL' && password === 'YOUR_ADMIN_PASSWORD') {
     res.json({
       success: true,
       token: 'mock-jwt-token',
@@ -129,9 +129,9 @@ app.post('/api/auth/refresh', (req, res) => {
 
 // Mock student data
 const students = [
-  { id: '1', name: 'Divij Sharma', phone: '8588851907', email: 'divij@example.com', grade: '12th', status: 'active' },
-  { id: '2', name: 'Priya Verma', phone: '9876543210', email: 'priya@example.com', grade: '10th', status: 'active' },
-  { id: '3', name: 'Raj Singh', phone: '7894561230', email: 'raj@example.com', grade: '11th', status: 'inactive' }
+  { id: '1', name: 'Student One', phone: 'PHONE_NUMBER_1', email: 'student1@example.com', grade: '12th', status: 'active' },
+  { id: '2', name: 'Student Two', phone: 'PHONE_NUMBER_2', email: 'student2@example.com', grade: '10th', status: 'active' },
+  { id: '3', name: 'Student Three', phone: 'PHONE_NUMBER_3', email: 'student3@example.com', grade: '11th', status: 'inactive' }
 ];
 
 // Student Management Endpoints
@@ -228,9 +228,9 @@ app.get('/api/fees/student/:studentId', (req, res) => {
 
 // Mock notification logs
 const notificationLogs = [
-  { id: '1', studentId: '1', phone: '8588851907', message: 'Your fee payment of Rs.15000 is due on 2025-08-15', status: 'delivered', timestamp: '2025-07-25T12:30:00Z' },
-  { id: '2', studentId: '1', phone: '8588851907', message: 'Reminder: Your fee payment of Rs.15000 is due on 2025-08-15', status: 'delivered', timestamp: '2025-07-26T10:15:00Z' },
-  { id: '3', studentId: '2', phone: '9876543210', message: 'Your fee payment of Rs.12000 is due on 2025-09-01', status: 'delivered', timestamp: '2025-07-26T09:45:00Z' }
+  { id: '1', studentId: '1', phone: 'PHONE_NUMBER_1', message: 'Your fee payment of Rs.15000 is due on 2025-08-15', status: 'delivered', timestamp: '2025-07-25T12:30:00Z' },
+  { id: '2', studentId: '1', phone: 'PHONE_NUMBER_1', message: 'Reminder: Your fee payment of Rs.15000 is due on 2025-08-15', status: 'delivered', timestamp: '2025-07-26T10:15:00Z' },
+  { id: '3', studentId: '2', phone: 'PHONE_NUMBER_2', message: 'Your fee payment of Rs.12000 is due on 2025-09-01', status: 'delivered', timestamp: '2025-07-26T09:45:00Z' }
 ];
 
 // Notification/Reminder Endpoints

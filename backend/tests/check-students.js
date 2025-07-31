@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -29,7 +29,7 @@ const checkStudents = async () => {
     });
 
     // Check specifically for our test student
-    const testStudent = result.Items.find(s => s.phone_no === '+918588851907' || s.phone === '+918588851907');
+    const testStudent = result.Items.find(s => s.phone_no === '+91YOUR_TEST_PHONE' || s.phone === '+91YOUR_TEST_PHONE');
     if (testStudent) {
       console.log('\n Found our test student for cron testing!');
       console.log('Full student data:', JSON.stringify(testStudent, null, 2));

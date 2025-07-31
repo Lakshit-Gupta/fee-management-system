@@ -78,7 +78,7 @@ const AddStudent = () => {
       // Final data with registration number
       const studentData = {
         ...formData,
-        registration_no: `AIICT-${year}${month}-${initials}`,
+        registration_no: `INST-${year}${month}-${initials}`,
         monthlyAmount: parseFloat(formData.monthly_fee),
         registrationFee: parseFloat(formData.registration_fee),
         dueDate: dueDate // Added at top level for backend processing

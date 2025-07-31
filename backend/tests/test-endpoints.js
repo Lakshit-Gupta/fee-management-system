@@ -7,12 +7,12 @@ const axios = require('axios');
 const chalk = require('chalk'); // For colorful console output
 
 // Configure API base URL
-const API_BASE_URL = 'https://v9xret02rk.execute-api.ap-south-1.amazonaws.com/pro';
+const API_BASE_URL = 'YOUR_API_ENDPOINT';
 
 // Test credentials
 const TEST_ADMIN = {
-  email: 'admin@aiict.in',
-  password: 'Admin123!' // Replace with actual test password
+  email: 'YOUR_ADMIN_EMAIL',
+  password: 'YOUR_ADMIN_PASSWORD' // Replace with actual test password
 };
 
 // Initialize storage for auth token

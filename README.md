@@ -1,10 +1,10 @@
-# AIICT Fee Management System
+# Fee Management System
 
-A comprehensive fee management system for AIICT, featuring SMS notifications, admin panel, and student fee tracking.
+A comprehensive fee management system for educational institutes, featuring SMS notifications, admin panel, and student fee tracking.
 
 ## Overview
 
-The AIICT Fee Management System is designed to streamline fee collection and management for educational institutes. It provides automated fee reminders via SMS, a user-friendly admin panel, and comprehensive student record management.
+The Fee Management System is designed to streamline fee collection and management for educational institutes. It provides automated fee reminders via SMS, a user-friendly admin panel, and comprehensive student record management.
 
 ## Features
 
@@ -35,7 +35,7 @@ fee-management-system/
 ├── database/               # Database schema and migrations
 │   └── schema.sql          # SQL schema for reference
 └── frontend/               # Admin panel web application
-    └── aiict.in/admin/     # React-based admin interface
+    └── admin/              # React-based admin interface
 ```
 
 ## Technology Stack
@@ -58,10 +58,10 @@ fee-management-system/
 The system is deployed across multiple AWS services:
 
 1. **Backend API**: AWS Lambda + API Gateway
-   - Endpoint: https://v9xret02rk.execute-api.ap-south-1.amazonaws.com/pro/
+   - Endpoint: YOUR_API_ENDPOINT
 
 2. **Admin Panel**: Amazon S3 + CloudFront
-   - URL: https://admin.aiict.in
+   - URL: YOUR_FRONTEND_URL
 
 3. **Database**: Amazon DynamoDB
    - Tables: Students-pro, NotificationLogs-pro
@@ -82,12 +82,12 @@ The system uses the following environment variables:
 
 ```
 JWT_SECRET=<secret-key>
-ADMIN_EMAIL=admin@aiict.in
+ADMIN_EMAIL=YOUR_ADMIN_EMAIL
 ADMIN_PASSWORD_HASH=<hashed-password>
-CORS_ORIGIN=https://admin.aiict.in
+CORS_ORIGIN=YOUR_FRONTEND_URL
 FAST2SMS_API_KEY=<api-key>
 SMS_ENABLED=true
-INSTITUTE_NAME=AIICT
+INSTITUTE_NAME=YOUR_INSTITUTE_NAME
 SUPPORT_PHONE=<phone-number>
 ```
 
@@ -136,8 +136,8 @@ SUPPORT_PHONE=<phone-number>
 
 ## License
 
-Proprietary - All rights reserved by AIICT
+Proprietary - All rights reserved
 
 ## Contact
 
-For support or inquiries, contact admin@aiict.in
+For support or inquiries, contact YOUR_CONTACT_EMAIL

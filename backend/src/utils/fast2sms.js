@@ -239,7 +239,7 @@ class Fast2SMSService {
         const dueDate = feeData.dueDate || student.dueDate || 'soon';
 
         // GSM-compatible message (no Unicode symbols like ₹) - 1 SMS unit only
-        return `AIICT Fee Reminder: Hi ${studentName}, your fee of Rs.${amount} for ${course} is due on ${dueDate}. Please settle your pending dues. Reply STOP to opt out.`;
+        return `Fee Reminder: Hi ${studentName}, your fee of Rs.${amount} for ${course} is due on ${dueDate}. Please settle your pending dues. Reply STOP to opt out.`;
     }
 
     /**
@@ -252,7 +252,7 @@ class Fast2SMSService {
         const dueDate = feeData.dueDate || student.dueDate || 'soon';
 
         // GSM-compatible message (no Unicode symbols like ₹) - 1 SMS unit only
-        return `AIICT Fee Reminder: Fee of Rs.${amount} for ${studentName}'s ${course} course is due on ${dueDate}. Please settle the pending dues. Reply STOP to opt out.`;
+        return `Fee Reminder: Fee of Rs.${amount} for ${studentName}'s ${course} course is due on ${dueDate}. Please settle the pending dues. Reply STOP to opt out.`;
     }
 
     /**

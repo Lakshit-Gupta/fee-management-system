@@ -3,7 +3,7 @@ const uuid = require('uuid');
 
 // Configure AWS
 AWS.config.update({
-  region: 'ap-south-1'
+  region: 'YOUR_AWS_REGION'
 });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();

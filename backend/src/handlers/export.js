@@ -8,7 +8,7 @@ router.get('/students', async (req, res) => {
   try {
     // Configure AWS
     AWS.config.update({
-      region: process.env.AWS_REGION || 'ap-south-1'
+      region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
     });
 
     const docClient = new AWS.DynamoDB.DocumentClient();
@@ -85,7 +85,7 @@ router.get('/notifications', async (req, res) => {
   try {
     // Configure AWS
     AWS.config.update({
-      region: process.env.AWS_REGION || 'ap-south-1'
+      region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
     });
 
     const docClient = new AWS.DynamoDB.DocumentClient();

@@ -15,7 +15,7 @@ const moment = require('moment');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();

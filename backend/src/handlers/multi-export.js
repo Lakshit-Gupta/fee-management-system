@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 // Create DynamoDB DocumentClient

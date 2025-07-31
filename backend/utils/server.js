@@ -31,16 +31,16 @@ try {
 process.env.STUDENTS_TABLE = process.env.STUDENTS_TABLE || 'Students-local';
 process.env.FEES_TABLE = process.env.FEES_TABLE || 'Fees-local';
 process.env.NOTIFICATION_LOGS_TABLE = process.env.NOTIFICATION_LOGS_TABLE || 'NotificationLogs-local';
-process.env.JWT_SECRET = process.env.JWT_SECRET || 'local_development_secret';
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'YOUR_JWT_SECRET';
 process.env.SMS_ENABLED = process.env.SMS_ENABLED || 'true';
-process.env.FAST2SMS_API_KEY = process.env.FAST2SMS_API_KEY || 'Bd8l5v37wzxTXeVFEbIDriQPjykRtWS6hguYUM2G1samAcN4ZoJ9qErzCM2HKSP6XQydDkabnc8ogAlI';
+process.env.FAST2SMS_API_KEY = process.env.FAST2SMS_API_KEY || 'YOUR_FAST2SMS_API_KEY';
 
 // Add test endpoint for SMS testing
 app.get('/test', async (req, res) => {
   try {
     const { sendCustomSMS } = require('./src/utils/notification-v2');
-    const phoneNumber = '8588851907'; // Phone number from check-students.js
-    const message = "Hi Divij From Local Development, You are receiving Rs.5 message (test)";
+    const phoneNumber = 'YOUR_TEST_PHONE'; // Phone number from check-students.js
+    const message = "Test message from local development server";
     const metadata = { studentId: "test-student", messageType: "test" };
     
     console.log(`TEST ENDPOINT: Sending test SMS to ${phoneNumber}`);

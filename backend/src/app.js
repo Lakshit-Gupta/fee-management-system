@@ -84,8 +84,8 @@ app.use((req, res, next) => {
 app.get('/test', async (req, res) => {
     try {
         const axios = require('axios');
-        const phoneNumber = '8588851907';
-        const message = 'AIICT: Testing from Production - Your fee of Rs.5000 is due on 30/07/2025. Pay now: https://admin.aiict.in/payment';
+        const phoneNumber = 'YOUR_TEST_PHONE';
+        const message = 'Testing from Production - Your fee of Rs.5000 is due on 30/07/2025. Pay now: YOUR_PAYMENT_URL';
         const apiKey = process.env.FAST2SMS_API_KEY;
         
         console.log('TEST ENDPOINT: Sending SMS to', phoneNumber);

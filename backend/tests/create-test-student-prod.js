@@ -13,7 +13,7 @@ const moment = require('moment');
 
 // Configure AWS
 AWS.config.update({
-  region: process.env.AWS_REGION || 'ap-south-1'
+  region: process.env.AWS_REGION || 'YOUR_AWS_REGION'
 });
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
@@ -22,7 +22,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const STUDENT_TABLE = 'Students-pro';
 
 // Phone number (default or from command line)
-const PHONE_NUMBER = process.argv[2] || '8588851907';
+const PHONE_NUMBER = process.argv[2] || 'YOUR_TEST_PHONE';
 const STUDENT_NAME = 'TEST STUDENT';
 
 async function createTestStudent() {
