@@ -6,7 +6,7 @@ provider:
   stage: ${opt:stage, '<stage_name>'}
   region: ap-south-1
   deploymentBucket:
-    name: <S3_Deployment_Bucket_Name> # Specify existing bucket name here
+    name: <YOUR_S3_Deployment_Bucket_Name> # Specify existing bucket name here
   environment:
     STUDENTS_TABLE: Students-${self:provider.stage}
     FEES_TABLE: Fees-${self:provider.stage}
