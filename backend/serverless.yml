@@ -1,12 +1,12 @@
-service: fee-management-system-Aiict
+service: fee-management-system-<INSTITUTE_NAME>
 
 provider:
   name: aws
   runtime: nodejs16.x
-  stage: ${opt:stage, 'pro'}
+  stage: ${opt:stage, '<stage_name>'}
   region: ap-south-1
   deploymentBucket:
-    name: aiict-serverless-deployments # Specify existing bucket name here
+    name: <S3_Deployment_Bucket_Name> # Specify existing bucket name here
   environment:
     STUDENTS_TABLE: Students-${self:provider.stage}
     FEES_TABLE: Fees-${self:provider.stage}
@@ -70,7 +70,7 @@ functions:
           path: /{proxy+}
           method: ANY
           cors:
-            origin: ${self:provider.environment.CORS_ORIGIN} # Restricted to admin.aiict.in in production
+            origin: ${self:provider.environment.CORS_ORIGIN} # Restricted to your cors origin in production
             headers:
               - Content-Type
               - X-Amz-Date
@@ -172,7 +172,7 @@ custom:
       cors: 'http://localhost:3000' # For local development
     prod:
       logRetentionInDays: 30
-      cors: 'https://admin.aiict.in'
+      cors: '<YOUR_CORS_LINK>'
       
   # Optimize package size for faster deployments  
   package:
