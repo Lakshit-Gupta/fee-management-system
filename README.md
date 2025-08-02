@@ -139,4 +139,4 @@ Proprietary - All rights reserved
 
 ## Contact
 
-For support or inquiries, contact YOUR_CONTACT_EMAIL
+For support or inquiries, contacts available at profile
