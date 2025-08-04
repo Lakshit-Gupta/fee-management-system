@@ -58,10 +58,9 @@ fee-management-system/
 The system is deployed across multiple AWS services:
 
 1. **Backend API**: AWS Lambda + API Gateway
-   - Endpoint: YOUR_API_ENDPOINT
 
 2. **Admin Panel**: Amazon S3 + CloudFront
-   - URL: YOUR_FRONTEND_URL
+   - URL: admin.aiict.in
 
 3. **Database**: Amazon DynamoDB
    - Tables: Students-pro, NotificationLogs-pro
@@ -140,4 +139,4 @@ Proprietary - All rights reserved
 
 ## Contact
 
-For support or inquiries, contact YOUR_CONTACT_EMAIL
+For support or inquiries, contacts available at profile
